@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clinical Assessment | CardioVision AI</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/clinical.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Background -->
+
+    <div class="background">
+
+        <div class="blur blur1"></div>
+
+        <div class="blur blur2"></div>
+
+        <div class="blur blur3"></div>
+
+    </div>
+
+    <!-- Navbar -->
+
+    <nav>
+
+        <div class="logo">
+
+            <span>CardioVision AI❤️</span>
+
+        </div>
+
+        <div class="nav-right">
+
+            <span class="welcome">
+
+                <i class="fa-solid fa-user-doctor"></i>
+
+                Clinical Assessment
+
+            </span>
+
+            <a href="/dashboard" class="home-btn">
+
+        <i class="fa-solid fa-house"></i>
+
+        Dashboard
+
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- Heading -->
+
+    <section class="page-title">
+
+        <h1>🫀Intelligent Coronary Artery Disease Risk Prediction</h1>
+
+        <p>
+
+            Clinical + ECG + Echo + TMT AI Prediction
+
+        </p>
+
+    </section>
+
+    <!-- Progress -->
+     <div class="progress-container">
+
+    <div class="step active">
+        <i class="fa-solid fa-user"></i>
+        <span>Patient Info</span>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="step">
+        <i class="fa-solid fa-stethoscope"></i>
+        <span>Clinical</span>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="step">
+        <i class="fa-solid fa-heart-pulse"></i>
+        <span>ECG</span>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="step">
+        <i class="fa-solid fa-heart-circle-check"></i>
+        <span>Echo</span>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="step">
+        <i class="fa-solid fa-person-running"></i>
+        <span>TMT</span>
+    </div>
+
+</div>
+
+    <!-- Main Form -->
+
+    <form id="predictionForm"
+        action="/result"
+        method="POST"
+        enctype="multipart/form-data">
+
+        <!-- ================================= -->
+
+        <!-- Patient Information -->
+
+        <!-- ================================= -->
+
+        <section class="card">
+
+            <h2>
+
+                <i class="fa-solid fa-user"></i>
+
+                Patient Information
+
+            </h2>
+
+            <div class="grid-2">
+
+                <div class="input-group">
+
+                    <label>Patient ID</label>
+
+                    <input type="text"
+                        name="patient_id"
+                        required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Patient Name</label>
+
+                    <input type="text"
+                        name="patient_name"
+                        required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Age</label>
+
+                    <input type="number"
+                        id="age"
+                        name="Age"
+                        required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Gender</label>
+
+                    <select name="Sex"
+                        required>
+
+                        <option value="">Select</option>
+
+                        <option value="Male">Male</option>
+
+                        <option value="Fmale">Female</option>
+
+                    </select>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Phone Number</label>
+
+                    <input type="text"
+                        name="phone">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Date</label>
+
+                    <input type="date"
+                        name="date">
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================================= -->
+
+        <!-- Physical Measurements -->
+
+        <!-- ================================= -->
+
+        <section class="card">
+
+            <h2>
+
+                <i class="fa-solid fa-weight-scale"></i>
+
+                Physical Measurements
+
+            </h2>
+
+            <div class="grid-3">
+
+                <div class="input-group">
+
+                    <label>Weight (kg)</label>
+
+                    <input type="number"
+                        id="weight"
+                        name="weight"
+                        step="0.1"
+                        required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Height (cm)</label>
+
+                    <input type="number"
+                        id="height"
+                        name="height"
+                        step="0.1"
+                        required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>BMI</label>
+
+                    <input type="number"
+                        id="bmi"
+                        name="BMI"
+                        step="0.01"
+                        readonly>
+
+                </div>
+
+            </div>
+
+        </section>
+                <!-- ================================= -->
+
+        <!-- Clinical Parameters -->
+
+        <!-- ================================= -->
+        <section class="card">
+
+<h2>
+<i class="fa-solid fa-heart-circle-check"></i>
+Clinical Parameters
+</h2>
+
+<p>CAD Risk Clinical Features</p>
+
+
+<div class="grid-3">
+
+
+<div class="input-group">
+
+<label>Diabetes</label>
+
+<select name="DM" required>
+
+<option value="0">No</option>
+
+<option value="1">Yes</option>
+
+</select>
+
+</div>
+
+
+
+<div class="input-group">
+
+<label>Hypertension</label>
+
+<select name="HTN" required>
+
+<option value="0">No</option>
+
+<option value="1">Yes</option>
+
+</select>
+
+</div>
+
+
+
+<div class="input-group">
+
+<label>Current Smoker</label>
+
+<select name="Current Smoker" required>
+
+<option value="0">No</option>
+
+<option value="1">Yes</option>
+
+</select>
+
+</div>
+
+
+
+<div class="input-group">
+
+<label>Family History of CAD</label>
+
+<select name="FH" required>
+
+<option value="0">No</option>
+
+<option value="1">Yes</option>
+
+</select>
+
+</div>
+
+
+
+<div class="input-group">
+
+<label>Typical Chest Pain</label>
+
+<select name="Typical Chest Pain" required>
+
+<option value="0">
+No
+</option>
+
+<option value="1">
+Yes
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="input-group">
+
+<label>Dyspnea(shortness of Breath)</label>
+
+<select name="Dyspnea" required>
+
+<option value="N">No</option>
+
+<option value="Y">Yes</option>
+
+</select>
+
+</div>
+
+
+
+<div class="input-group">
+
+<label>Blood Pressure</label>
+
+<input 
+type="number"
+name="BP"
+required>
+
+</div>
+
+
+
+<div class="input-group">
+
+<label>Pulse Rate</label>
+
+<input 
+type="number"
+name="PR"
+required>
+
+</div>
+
+
+
+<div class="input-group">
+
+<label>Fasting Blood Sugar</label>
+
+<input 
+type="number"
+name="FBS"
+required>
+
+</div>
+
+
+
+<div class="input-group">
+
+<label>LDL Cholesterol</label>
+
+<input 
+type="number"
+name="LDL"
+required>
+
+</div>
+
+
+
+<div class="input-group">
+
+<label>HDL Cholesterol</label>
+
+<input 
+type="number"
+name="HDL"
+required>
+
+</div>
+
+
+
+<div class="input-group">
+
+<label>Triglycerides</label>
+
+<input 
+type="number"
+name="TG"
+required>
+
+</div>
+
+
+</div>
+
+
+</section>
+        <!-- ================================= -->
+
+        <!-- ECG Analysis -->
+
+        <!-- ================================= -->
+
+        <section class="card">
+
+            <h2>
+
+                <i class="fa-solid fa-heart-pulse"></i>
+
+                ECG Analysis
+
+            </h2>
+
+            <p>Upload 12-Lead ECG CSV File</p>
+
+            <div class="input-group">
+
+                <label>ECG CSV File</label>
+
+                <input type="file"
+                    name="ecg_file"
+                    accept=".csv">
+
+            </div>
+
+        </section>
+                <!-- ================================= -->
+
+        <!-- Echo Analysis -->
+
+        <!-- ================================= -->
+
+        <section class="card">
+
+            <h2>
+
+                <i class="fa-solid fa-wave-square"></i>
+
+                Echocardiogram Analysis
+
+            </h2>
+
+            <p>Upload Echo Image or Vedio</p>
+
+            <div class="input-group">
+
+                <label>Echo Photo/Vedio</label>
+
+                <input
+                    type="file"
+                    name="echo_file"
+                    accept=".jpg,.jpeg,.png,.mp4,.avi,.mov">
+
+            </div>
+
+        </section>
+
+        <!-- ================================= -->
+
+        <!-- TMT Parameters -->
+
+        <!-- ================================= -->
+
+        <section class="card">
+
+            <h2>
+
+                <i class="fa-solid fa-person-running"></i>
+
+                Treadmill Test (TMT)
+
+            </h2>
+
+            <div class="grid-3">
+
+                <div class="input-group">
+
+                    <label>Resting Heart Rate</label>
+
+                    <input
+                        type="number"
+                        id="rest_hr"
+                        name="rest_hr"
+                    >
+
+                </div>
+                <div class="input-group">
+                    <label>Maximum Heart Rate</label>
+
+                    <input
+                      type="number"
+                        id="max_hr"
+                        name="max_hr"
+                    >
+                </div>
+
+                <div class="input-group">
+
+                    <label>Heart Rate Recovery</label>
+
+                    <input
+                        type="number"
+                        name="hr_recovery"
+                    >
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Maximum Speed</label>
+
+                    <input
+                        type="number"
+                        step="0.1"
+                        name="max_speed"
+                    >
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Average VO₂</label>
+
+                    <input
+                        type="number"
+                        step="0.1"
+                        name="avg_vo2"
+                    >
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Exercise Duration</label>
+
+                    <input
+                        type="number"
+                        step="0.1"
+                        name="duration"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================================= -->
+
+        <!-- Loader -->
+
+        <!-- ================================= -->
+
+        <div id="loader" style="display:none; text-align:center; padding:20px;">
+
+            <h3>
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                Predicting CAD Risk...
+
+            </h3>
+
+        </div>
+
+        <!-- ================================= -->
+
+        <!-- Submit -->
+
+        <!-- ================================= -->
+
+        <section class="submit-section">
+
+    <div id="loader" style="display:none;">
+        <h3>
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            Predicting CAD Risk...
+        </h3>
+    </div>
+
+    <button type="submit" id="predictBtn" class="predict-btn">
+        <i class="fa-solid fa-brain"></i>
+        Predict CAD Risk
+    </button>
+
+</section>
+                <!-- ================================= -->
+
+        <!-- BMI Auto Calculation -->
+
+        <!-- ================================= -->
+
+        <script>
+
+            const weight = document.getElementById("weight");
+            const height = document.getElementById("height");
+            const bmi = document.getElementById("bmi");
+
+            function calculateBMI() {
+
+                const w = parseFloat(weight.value);
+                const h = parseFloat(height.value) / 100;
+
+                if (!isNaN(w) && !isNaN(h) && h > 0) {
+
+                    bmi.value = (w / (h * h)).toFixed(2);
+
+                } else {
+
+                    bmi.value = "";
+
+                }
+
+            }
+
+            weight.addEventListener("input", calculateBMI);
+            height.addEventListener("input", calculateBMI);
+
+        </script>
+
+    </form>
+
+    <script src="{{ url_for('static', filename='js/clinical.js') }}"></script>
+
+</body>
+
+</html>

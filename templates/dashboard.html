@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>AI CAD Dashboard</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/dashboard.css') }}"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="background">
+      <div class="blur blur1"></div>
+
+      <div class="blur blur2"></div>
+
+      <div class="blur blur3"></div>
+    </div>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+      <div class="logo"><span>CardioVision AI❤️</span></div>
+
+      <div class="nav-right">
+        <span class="welcome">
+          <i class="fa-solid fa-user-doctor"></i>
+
+          Welcome Admin
+        </span>
+
+        <a href="/logout" class="logout"> Logout </a>
+      </div>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+      <div class="hero-left">
+        <h1>
+          🫀Intelligent Coronary<br />
+
+          Artery Disease Risk<br />
+
+          Prediction
+        </h1>
+
+        <p>
+          Clinical + ECG + Echo + TMT AI Prediction
+        </p>
+
+        <div class="buttons">
+          <a href="/clinical" class="primary-btn">Start Prediction</a>
+
+          <a href="/history" class="secondary-btn"> Prediction History</a>
+        </div>
+      </div>
+
+      <!-- AI CARD -->
+
+      <div class="hero-right">
+        <div class="assistant-card">
+          <div class="assistant-icon">
+            <i class="fa-solid fa-heart-pulse"></i>
+          </div>
+
+          <h2>AI Health Assistant</h2>
+
+          <div class="progress-box">
+            <div class="model-name">
+              <span>CLINICAL</span>
+              <span>88.52%</span>
+            </div>
+            <div class="progress">
+              <div class="clinical"></div>
+            </div>
+          </div>
+
+          <div class="progress-box">
+            <div class="model-name">
+              <span>ECG</span>
+              <span>85.52%</span>
+            </div>
+            <div class="progress">
+              <div class="ecg"></div>
+            </div>
+          </div>
+
+          <div class="progress-box">
+            <div class="model-name">
+              <span>ECHO</span>
+              <span>78.31%</span>
+            </div>
+            <div class="progress">
+              <div class="echo"></div>
+            </div>
+          </div>
+
+          <div class="progress-box">
+            <div class="model-name">
+              <span>TMT</span>
+              <span>91.56%</span>
+            </div>
+            <div class="progress">
+              <div class="tmt"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MODULES ================= -->
+
+    <!-- ================= DASHBOARD STATS ================= -->
+    <!-- ================= AI SUMMARY ================= -->
+    <!-- ================= RECENT REPORTS ================= -->
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+      <p>© 2026 CardioVision AI by Nandini</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+  </body>
+</html>

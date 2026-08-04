@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intelligent CAD Risk Prediction System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/login.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="background">
+      <div class="gradient one"></div>
+      <div class="gradient two"></div>
+      <div class="gradient three"></div>
+    </div>
+    <div class="page">
+      <!-- LEFT SIDE -->
+      <section class="left-side">
+        <div class="brand">
+          <div class="logo">
+            <div class="heart-circle">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+          </div>
+          <h1>CardioVision AI❤️<br /></h1>
+          <p>
+            Clinical + ECG + Echo + TMT AI Prediction
+          </p>
+        </div>
+        <div class="ecg-box">
+          <svg viewBox="0 0 1200 180">
+            <polyline
+              class="ecg"
+              points="
+                    0,90
+                    100,90
+                    140,85
+                    180,90
+                    240,90
+                    300,20
+                    330,150
+                    370,40
+                    420,90
+                    550,90
+                    620,90
+                    670,18
+                    710,150
+                    760,45
+                    820,90
+                    930,90
+                    1000,90
+                    1040,25
+                    1080,150
+                    1120,40
+                    1200,90
+                    "
+            ></polyline>
+          </svg>
+        </div>
+        <div class="features">
+          <div class="feature-card">
+            <i class="fa-solid fa-stethoscope"></i>
+            <span>Clinical Assessment</span>
+          </div>
+          <div class="feature-card">
+            <i class="fa-solid fa-heart-circle-check"></i>
+            <span>ECG Analysis</span>
+          </div>
+          <div class="feature-card">
+            <i class="fa-solid fa-lungs"></i>
+            <span>Echo Analysis</span>
+          </div>
+          <div class="feature-card">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>TMT Analysis</span>
+          </div>
+        </div>
+      </section>
+      <!-- RIGHT SIDE -->
+      <section class="right-side">
+        <div class="login-card">
+          <h2>Welcome</h2>
+          <p class="subtitle">Login to continue</p>
+          {% if error %}
+          <div class="error">{{ error }}</div>
+          {% endif %}
+          <form action="/login" method="POST">
+            <div class="input-box">
+              <label>Username</label>
+              <div class="input">
+                <i class="fa-solid fa-user"></i>
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="Enter Username"
+                  required
+                />
+              </div>
+            </div>
+            <div class="input-box">
+              <label>Password</label>
+              <div class="input">
+                <i class="fa-solid fa-lock"></i>
+                <input
+                  id="password"
+                  type="password"
+                  name="password"
+                  placeholder="Enter Password"
+                  required
+                />
+                <i class="fa-solid fa-eye" id="togglePassword"> </i>
+              </div>
+            </div>
+            <div class="options">
+              <label>
+                <input type="checkbox" />
+                Remember Me
+              </label>
+              <a href="#"> Forgot Password? </a>
+            </div>
+            <button class="login-btn">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              Login
+            </button>
+          </form>
+          <div class="divider">
+            <span>AI Powered Healthcare</span>
+          </div>
+          <div class="security">
+            <i class="fa-solid fa-shield-heart"></i>
+            <span> Secure Medical Data • HIPAA Inspired Design </span>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script>
+      const togglePassword = document.getElementById("togglePassword");
+      const password = document.getElementById("password");
+      togglePassword.addEventListener("click", function () {
+        if (password.type === "password") {
+          password.type = "text";
+          togglePassword.classList.remove("fa-eye");
+          togglePassword.classList.add("fa-eye-slash");
+        } else {
+          password.type = "password";
+          togglePassword.classList.remove("fa-eye-slash");
+          togglePassword.classList.add("fa-eye");
+        }
+      });
+    </script>
+    <footer>
+      <p>© 2026 CardioVision AI by Nandini</p>
+    </footer>
+  </body>
+</html>

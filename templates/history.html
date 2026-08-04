@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prediction History</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            background:#081220;
+            color:white;
+            padding:40px;
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:35px;
+            font-size:40px;
+        }
+
+        .table-container{
+
+            width:95%;
+            margin:auto;
+
+            background:rgba(255,255,255,.08);
+
+            backdrop-filter:blur(15px);
+
+            border-radius:20px;
+
+            padding:25px;
+
+            overflow-x:auto;
+
+        }
+
+        table{
+
+            width:100%;
+
+            border-collapse:collapse;
+
+        }
+
+        th{
+
+            background:#00BCD4;
+
+            color:white;
+
+            padding:16px;
+
+            font-size:16px;
+
+        }
+
+        td{
+
+            padding:15px;
+
+            text-align:center;
+
+            border-bottom:1px solid rgba(255,255,255,.1);
+
+        }
+
+        tr:hover{
+
+            background:rgba(255,255,255,.08);
+
+        }
+
+        .low{
+
+            color:#2ecc71;
+
+            font-weight:bold;
+
+        }
+
+        .moderate{
+
+            color:#f39c12;
+
+            font-weight:bold;
+
+        }
+
+        .high{
+
+            color:#e74c3c;
+
+            font-weight:bold;
+
+        }
+        .delete-btn{
+            background:#ef4444;
+            color:white;
+            padding:8px 16px;
+            border-radius:10px;
+            text-decoration:none;
+            font-size:14px;
+            font-weight:600;
+            transition:.3s;
+        }
+
+        .delete-btn:hover{
+            background:#dc2626;
+            transform:translateY(-2px);
+        }
+
+        .back{
+
+            display:inline-block;
+
+            margin-top:30px;
+
+            padding:12px 30px;
+
+            border-radius:30px;
+
+            text-decoration:none;
+
+            color:white;
+
+            background:#6C63FF;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>🫀 Prediction History</h1>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Patient ID</th>
+
+<th>Name</th>
+
+<th>Date</th>
+
+<th>Age</th>
+
+<th>Gender</th>
+
+<th>Clinical</th>
+
+<th>ECG</th>
+
+<th>Echo</th>
+
+<th>TMT</th>
+
+<th>Overall</th>
+
+<th>Risk</th>
+
+<th>Actions</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for row in history %}
+
+<tr>
+
+<td>{{ row.patient_id }}</td>
+
+<td>{{ row.patient_name }}</td>
+
+<td>{{ row.date }}</td>
+
+<td>{{ row.age }}</td>
+
+<td>{{ row.gender }}</td>
+
+<td>{{ row.clinical }}%</td>
+
+<td>{{ row.ecg if row.ecg else "--" }}</td>
+
+<td>{{ row.echo if row.echo else "--" }}</td>
+
+<td>{{ row.tmt if row.tmt else "--" }}</td>
+
+<td>{{ row.overall_score }}%</td>
+
+<td>
+
+{% if row.risk_level=="Low Risk" %}
+
+<span class="low">{{ row.risk_level }}</span>
+
+{% elif row.risk_level=="Moderate Risk" %}
+
+<span class="moderate">{{ row.risk_level }}</span>
+
+{% else %}
+
+<span class="high">{{ row.risk_level }}</span>
+
+{% endif %}
+
+</td>
+<td>
+    <a href="/delete_prediction/{{ row.id }}"
+       class="delete-btn"
+       onclick="return confirm('Delete this report?')">
+       <i class="fas fa-trash"></i> Delete
+    </a>
+</td>
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+<center>
+
+<a href="/dashboard" class="back">
+
+⬅ Back to Dashboard
+
+</a>
+
+</center>
+
+</body>
+
+</html>

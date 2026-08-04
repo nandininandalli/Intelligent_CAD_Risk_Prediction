@@ -1,0 +1,1437 @@
+/* ==========================================================
+   CardioVision AI
+   RESULT PAGE
+========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    background:#081220;
+
+    color:#fff;
+
+    overflow-x:hidden;
+
+}
+
+/* =========================================
+BACKGROUND
+========================================= */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:-2;
+
+}
+
+.blur{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    opacity:.45;
+
+}
+
+.blur1{
+
+    width:430px;
+
+    height:430px;
+
+    background:#6c63ff;
+
+    top:-120px;
+
+    left:-120px;
+
+}
+
+.blur2{
+
+    width:420px;
+
+    height:420px;
+
+    background:#00d4ff;
+
+    bottom:-120px;
+
+    right:-120px;
+
+}
+
+.blur3{
+
+    width:260px;
+
+    height:260px;
+
+    background:#ff4d8d;
+
+    left:45%;
+
+    top:45%;
+
+}
+
+/* =========================================
+NAVBAR
+========================================= */
+
+nav{
+
+    width:92%;
+
+    margin:25px auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.logo{
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+.logo span{
+
+    margin-left:10px;
+
+}
+
+.nav-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.welcome{
+
+    color:#d5d5d5;
+
+    font-size:16px;
+
+}
+
+.dashboard-btn{
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:12px 28px;
+
+    border-radius:30px;
+
+    background:linear-gradient(135deg,#6c63ff,#00d4ff);
+
+    transition:.35s;
+
+}
+
+.dashboard-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 30px rgba(108,99,255,.35);
+
+}
+
+/* =========================================
+HERO
+========================================= */
+
+.hero{
+
+    width:90%;
+
+    margin:40px auto;
+
+    text-align:center;
+
+}
+
+.hero h1{
+
+    font-size:52px;
+
+    margin-bottom:18px;
+
+    font-weight:700;
+
+}
+
+.hero p{
+
+    max-width:900px;
+
+    margin:auto;
+
+    color:#d4d4d4;
+
+    line-height:1.8;
+
+    font-size:18px;
+
+}
+
+/* =========================================
+OVERALL RESULT
+========================================= */
+.fusion-box{
+
+    margin-top:25px;
+
+    background:rgba(255,255,255,.07);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:30px;
+
+}
+
+.fusion-box h3{
+
+    font-size:18px;
+
+    margin-bottom:25px;
+
+    color:white;
+
+}
+
+.fusion-box h3 i{
+
+    color:#17d5ff;
+
+    margin-right:12px;
+
+}
+
+.fusion-box p{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:14px;
+
+    color:#dddddd;
+
+    margin:15px 0;
+
+}
+
+.fusion-box p i{
+
+    color:#27d85d;
+
+}
+
+.fusion-box hr{
+
+    border:none;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    margin:25px 0;
+
+}
+
+.fusion-note{
+
+    line-height:1.8;
+
+    color:#cfcfcf;
+
+    font-size: 14px;
+
+}
+.overall-section{
+
+    width:90%;
+
+    margin:50px auto;
+
+}
+
+.overall-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:50px;
+
+    padding:40px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
+
+}
+
+.left{
+
+    flex:1;
+
+    text-align:center;
+
+}
+
+.left h2{
+
+    margin-bottom:30px;
+
+    font-size:32px;
+
+}
+
+.left h2 i{
+
+    color:#00d4ff;
+
+}
+
+.right{
+
+    flex:1;
+
+}
+
+/* =========================================
+RISK CIRCLE
+========================================= */
+
+.risk-circle{
+
+    position:relative;
+
+    width:250px;
+
+    height:250px;
+
+    margin:auto;
+
+}
+
+.risk-circle svg{
+
+    transform:rotate(-90deg);
+
+}
+
+.bg-circle{
+
+    fill:none;
+
+    stroke:rgba(255,255,255,.12);
+
+    stroke-width:18;
+
+}
+
+.progress-circle{
+
+    fill:none;
+
+    stroke:#00d4ff;
+
+    stroke-width:18;
+
+    stroke-linecap:round;
+
+    stroke-dasharray:628;
+
+    stroke-dashoffset:628;
+
+    transition:2s;
+
+}
+
+.circle-text{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    text-align:center;
+
+}
+
+.circle-text h1{
+
+    font-size:58px;
+
+    color:#00d4ff;
+
+}
+
+.circle-text p{
+
+    color:#cfcfcf;
+
+    margin-top:8px;
+
+}
+
+/* =========================================
+RISK BOX
+========================================= */
+
+.risk-box{
+
+    background:rgba(255,255,255,.06);
+
+    border-radius:22px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+
+}
+
+.risk-box h3{
+
+    margin-bottom:18px;
+
+}
+
+.risk-level{
+
+    display:inline-block;
+
+    padding:12px 28px;
+
+    border-radius:30px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.low{
+
+    background:#28a745;
+
+}
+
+.moderate{
+
+    background:#ff9800;
+
+}
+
+.high{
+
+    background:#dc3545;
+
+}
+
+.risk-box p{
+
+    line-height:1.8;
+
+    color:#d4d4d4;
+
+}
+
+/* =========================================
+FUSION BOX
+========================================= */
+
+.fusion-box{
+
+    background:rgba(255,255,255,.06);
+
+    border-radius:22px;
+
+    padding:25px;
+
+}
+
+.fusion-box h3{
+
+    margin-bottom:20px;
+
+}
+
+.fusion-box p{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:15px;
+
+    color:#d5d5d5;
+
+}
+
+.fusion-box span{
+
+    color:#00d4ff;
+
+    font-weight:700;
+
+}
+
+/* =========================================
+SUMMARY CARDS
+========================================= */
+
+.summary{
+
+    width:90%;
+
+    margin:60px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+
+}
+
+.summary-card{
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    text-align:center;
+
+    transition:.35s;
+
+}
+
+.summary-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 40px rgba(108,99,255,.25);
+
+}
+
+.summary-card i{
+
+    font-size:42px;
+
+    color:#00d4ff;
+
+    margin-bottom:20px;
+
+}
+
+.summary-card h3{
+
+    margin-bottom:15px;
+
+    font-size:24px;
+
+}
+
+.summary-card p{
+
+    color:#d4d4d4;
+
+    line-height:1.8;
+
+}
+
+/* =========================================
+SECTION FADE ANIMATION
+========================================= */
+
+.overall-card,
+.summary-card{
+
+    animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+/* =========================================
+INDIVIDUAL MODEL CARDS
+========================================= */
+
+.models-section{
+
+    width:90%;
+
+    margin:70px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
+}
+
+.model-card{
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:25px;
+
+    padding:25px;
+
+    transition:.35s;
+
+}
+
+.model-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 18px 45px rgba(108,99,255,.30);
+
+}
+
+.card-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:25px;
+
+}
+
+.icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:30px;
+
+}
+
+.clinical-icon{
+
+    background:#4CAF50;
+
+}
+
+.ecg-icon{
+
+    background:#FF9800;
+
+}
+
+.echo-icon{
+
+    background:#00BCD4;
+
+}
+
+.tmt-icon{
+
+    background:#9C27B0;
+
+}
+
+.card-header h2{
+
+    font-size:24px;
+
+    margin-bottom:6px;
+
+}
+
+.card-header span{
+
+    color:#cfcfcf;
+
+    font-size:15px;
+
+}
+
+/* =========================================
+PREDICTION VALUE
+========================================= */
+
+.prediction-value{
+
+    text-align:center;
+
+    margin:25px 0;
+
+}
+
+.prediction-value h1{
+
+    font-size:54px;
+
+    color:#00d4ff;
+
+    margin-bottom:15px;
+
+}
+
+.status{
+
+    display:inline-block;
+
+    padding:10px 25px;
+
+    border-radius:30px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.status.low{
+
+    background:#28a745;
+
+}
+
+.status.moderate{
+
+    background:#ff9800;
+
+}
+
+.status.high{
+
+    background:#dc3545;
+
+}
+
+/* =========================================
+PROGRESS BAR
+========================================= */
+
+.progress-bar{
+
+    width:100%;
+
+    height:12px;
+
+    background:rgba(255,255,255,.12);
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    margin:25px 0;
+
+}
+
+.progress{
+
+    height:100%;
+
+    width:0%;
+
+    border-radius:30px;
+
+    transition:2s;
+
+}
+
+.clinical-progress{
+
+    background:#4CAF50;
+
+}
+
+.ecg-progress{
+
+    background:#FF9800;
+
+}
+
+.echo-progress{
+
+    background:#00BCD4;
+
+}
+
+.tmt-progress{
+
+    background:#9C27B0;
+
+}
+
+/* =========================================
+MODEL DETAILS
+========================================= */
+
+.model-details{
+
+    margin-top:20px;
+
+}
+
+.model-details p{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin:14px 0;
+
+    color:#d5d5d5;
+
+}
+
+.model-details strong{
+
+    color:#00d4ff;
+
+}
+
+/* =========================================
+MODEL COMPARISON CHART
+========================================= */
+
+.comparison-section{
+
+    width:90%;
+
+    margin:70px auto;
+
+}
+
+.comparison-card{
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255, 255, 255, 0.064);
+
+}
+
+.comparison-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+}
+
+.comparison-header i{
+
+    font-size:34px;
+
+    color:#00d4ff;
+
+}
+
+.comparison-header h2{
+
+    font-size:30px;
+
+}
+
+canvas{
+
+    width:100% !important;
+
+    height:430px!important;
+
+}
+
+/* =========================================
+AI RECOMMENDATION
+========================================= */
+
+.recommendation-section,
+
+.riskfactor-section,
+
+.lifestyle-section{
+
+    width:90%;
+
+    margin:70px auto;
+
+}
+
+.recommendation-card,
+
+.riskfactor-card,
+
+.lifestyle-card{
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.10);
+
+}
+
+.section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+}
+
+.section-title i{
+
+    color:#00d4ff;
+
+    font-size:32px;
+
+}
+
+.section-title h2{
+
+    font-size:30px;
+
+}
+
+.recommendation-box{
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    line-height:1.9;
+
+}
+
+.recommendation-box h3{
+
+    margin-bottom:18px;
+
+    color:#00d4ff;
+
+}
+
+.recommendation-box p{
+
+    color:#d5d5d5;
+
+}
+
+/* =========================================
+RISK FACTORS
+========================================= */
+
+#riskFactors{
+
+    padding-left:30px;
+
+}
+
+#riskFactors li{
+
+    margin-bottom:15px;
+
+    line-height:1.8;
+
+    color:#d5d5d5;
+
+}
+
+/* =========================================
+LIFESTYLE GRID
+========================================= */
+
+.tips-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+}
+
+.tip{
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    text-align:center;
+
+    transition:.35s;
+
+}
+
+.tip:hover{
+
+    transform:translateY(-8px);
+
+    background:rgba(108,99,255,.18);
+
+}
+
+.tip i{
+
+    font-size:40px;
+
+    color:#00d4ff;
+
+    margin-bottom:18px;
+
+}
+
+.tip h4{
+
+    margin-bottom:12px;
+
+}
+
+.tip p{
+
+    color:#d5d5d5;
+
+    line-height:1.7;
+
+}
+
+/* =========================================
+ACTION BUTTONS
+========================================= */
+
+.actions{
+
+    width:90%;
+
+    margin:70px auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
+}
+
+.actions a,
+
+.actions button{
+
+    border:none;
+
+    cursor:pointer;
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:16px 35px;
+
+    border-radius:35px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.print-btn{
+
+    background:#2196F3;
+
+}
+
+.pdf-btn{
+
+    background:#E53935;
+
+}
+
+.new-btn{
+
+    background:#43A047;
+
+}
+
+.home-btn{
+
+    background:#6C63FF;
+
+}
+
+.actions a:hover,
+
+.actions button:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 18px 40px rgba(108,99,255,.35);
+
+}
+
+/* =========================================
+FOOTER
+========================================= */
+
+footer{
+
+    margin-top:60px;
+
+    padding:35px;
+
+    text-align:center;
+
+    color:#bdbdbd;
+
+    line-height:1.8;
+
+}
+
+.patient-card{
+
+    width:90%;
+    margin:55px auto;
+    padding:35px;
+
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.10);
+    backdrop-filter:blur(18px);
+
+    border-radius:25px;
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
+
+}
+
+.patient-card .section-title{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:25px;
+
+}
+
+.patient-card .section-title i{
+
+    color:#00d4ff;
+    font-size:32px;
+
+}
+
+.patient-card .section-title h2{
+
+    font-size:30px;      /* SAME as all other section headings */
+    font-weight:700;
+    color:#fff;
+
+}
+
+.patient-grid{
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+
+}
+
+.info-box{
+
+    background:rgba(255,255,255,.05);
+    border-radius:20px;
+
+    padding:22px;
+    min-height:110px;
+
+    transition:.35s;
+
+}
+
+.info-box:hover{
+
+    transform:translateY(-5px);
+    background:rgba(108,99,255,.12);
+
+}
+
+.info-box span{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    color:#b9c0cf;
+
+    font-size:16px;
+    font-weight:500;
+
+    margin-bottom:15px;
+
+}
+
+.info-box span i{
+
+    color:#00d4ff;
+    width:18px;
+
+}
+
+.info-box h3{
+
+    font-size:20px;
+    font-weight:700;
+    color:#fff;
+
+}
+@media print{
+
+body{
+    background:white !important;
+    color:black !important;
+}
+
+.background,
+.blur,
+nav,
+.actions,
+.dashboard-btn,
+footer{
+    display:none !important;
+}
+
+#report{
+    width:100%;
+    margin:0;
+    padding:20px;
+}
+
+.patient-card,
+.overall-card,
+.model-card,
+.recommendation-card,
+.riskfactor-card,
+.lifestyle-card{
+    background:white !important;
+    color:black !important;
+
+    box-shadow:none !important;
+
+    border:1px solid #ccc;
+
+    page-break-inside:avoid;
+}
+
+h1,h2,h3,h4{
+    color:black !important;
+}
+
+p,
+span{
+    color:#444 !important;
+}
+
+.progress-bar{
+    border:1px solid #ddd;
+}
+
+.risk-level{
+    color:white !important;
+}
+
+canvas{
+    max-width:100%;
+}
+
+}
+.signature{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-top:50px;
+
+padding-top:30px;
+
+border-top:2px solid rgba(255,255,255,.15);
+
+}
+
+.signature h3{
+
+font-size:20px;
+
+color:#00d4ff;
+
+margin:8px 0;
+
+}
+
+.signature p{
+
+font-size:15px;
+
+color:#bbb;
+
+}
+
+.signature span{
+
+font-size:14px;
+
+color:#888;
+
+}
+/* ===============================
+   DISCLAIMER
+================================= */
+
+.disclaimer-section{
+    width:100%;
+    margin:40px 0;
+}
+
+.disclaimer-card{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:20px;
+    padding:35px;
+    width: 100%;
+}
+
+.disclaimer-content{
+    background:rgba(255,255,255,.05);
+    border-left:6px solid #FFD54F;
+    padding:25px 30px;
+    border-radius:18px;
+}
+
+.disclaimer-content p{
+    font-size:16px;
+    color:#ffffff;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.disclaimer-content ul{
+    padding-left:22px;
+}
+
+.disclaimer-content li{
+    color:#d8d8d8;
+    margin-bottom:12px;
+    line-height:1.8;
+}
+
+.disclaimer-content strong{
+    color:#FFD54F;
+}

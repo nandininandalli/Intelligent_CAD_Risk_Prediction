@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CAD Prediction Result</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/result.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+
+<div class="background">
+
+<div class="blur blur1"></div>
+
+<div class="blur blur2"></div>
+
+<div class="blur blur3"></div>
+
+</div>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+<div class="logo">
+
+<span>CardioVision AI❤️</span>
+
+</div>
+
+<div class="nav-right">
+
+<span class="welcome">
+
+<i class="fa-solid fa-user-doctor"></i>
+
+Prediction Result
+
+</span>
+
+<a href="/dashboard" class="dashboard-btn">
+
+Dashboard
+
+</a>
+
+</div>
+
+</nav>
+
+<!-- ================= HERO ================= -->
+<div id="report">
+<section class="hero">
+
+<h1>
+
+🫀Intelligent CAD Risk Prediction Report
+
+</h1>
+
+<p>
+Clinical + ECG + Echo + TMT AI Prediction
+</p>
+
+</section>
+<div id="reportContainer">
+<!-- ================= PATIENT DETAILS ================= -->
+<section class="patient-section">
+
+<div class="patient-card">
+
+<div class="section-title">
+<i class="fa-solid fa-user"></i>
+<h2>Patient Information</h2>
+</div>
+
+<div class="patient-grid">
+
+<div class="info-box">
+    <i class="fa-solid fa-user"></i>
+<span>Name</span>
+<h3 id="patientName"></h3>
+</div>
+
+<div class="info-box">
+    <i class="fa-solid fa-hourglass-half"></i>
+<span>Age</span>
+<h3 id="patientAge"></h3>
+</div>
+
+<div class="info-box">
+    <i class="fa-solid fa-person"></i>
+<span>Gender</span>
+<h3 id="patientGender"></h3>
+</div>
+
+<div class="info-box">
+    <i class="fa-solid fa-weight-scale"></i>
+<span>BMI</span>
+<h3 id="patientBMI"></h3>
+</div>
+
+<div class="info-box">
+    <i class="fa-solid fa-heart-pulse"></i>
+
+<span>Blood Pressure</span>
+<h3 id="patientBP"></h3>
+</div>
+
+<div class="info-box">
+    <i class="fa-solid fa-calendar-days"></i>
+
+<span>Date</span>
+<h3 id="reportDate"></h3>
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ================= OVERALL RESULT ================= -->
+
+<section class="overall-section">
+
+<div class="overall-card">
+
+<div class="left">
+
+<h2>
+
+<i class="fa-solid fa-heart-circle-bolt"></i>
+
+Overall CAD Risk
+
+</h2>
+
+<div class="risk-circle">
+
+<svg width="250" height="250">
+
+<circle
+cx="125"
+cy="125"
+r="100"
+class="bg-circle">
+</circle>
+
+<circle
+cx="125"
+cy="125"
+r="100"
+class="progress-circle"
+id="progressCircle">
+</circle>
+
+</svg>
+
+<div class="circle-text">
+
+<h1 id="overallScore">
+
+0%
+
+</h1>
+
+<p>
+
+Predicted Risk
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="right">
+
+<div class="risk-box">
+
+<h3>
+
+Overall Prediction
+
+</h3>
+
+<div id="riskLevel"
+class="risk-level low">
+
+LOW RISK
+
+</div>
+
+<p id="overallDescription">
+
+The AI model predicts the patient has
+a low probability of Coronary Artery Disease.
+
+</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= INDIVIDUAL MODEL RESULTS ================= -->
+
+<section class="models-section">
+
+    <!-- Clinical -->
+
+    <div class="model-card clinical-card">
+
+        <div class="card-header">
+
+            <div class="icon clinical-icon">
+
+                <i class="fa-solid fa-stethoscope"></i>
+
+            </div>
+
+            <div>
+
+                <h2>Clinical Prediction</h2>
+
+                <span>Weight : 60%</span>
+
+            </div>
+
+        </div>
+
+        <div class="prediction-value">
+
+            <h1 id="clinicalScore">0%</h1>
+
+            <span class="status low"
+                  id="clinicalStatus">
+
+                Ready
+
+            </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div class="progress clinical-progress"
+                 id="clinicalProgress">
+
+            </div>
+
+        </div>
+
+        <div class="model-details">
+
+            <p>
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Model Accuracy
+
+                <strong>86.9%</strong>
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- ECG -->
+
+    <div class="model-card ecg-card">
+
+        <div class="card-header">
+
+            <div class="icon ecg-icon">
+
+                <i class="fa-solid fa-heart-pulse"></i>
+
+            </div>
+
+            <div>
+
+                <h2>ECG Analysis</h2>
+
+                <span>Weight : 15%</span>
+
+            </div>
+
+        </div>
+
+        <div class="prediction-value">
+
+            <h1 id="ecgScore">0%</h1>
+
+            <span class="status low"
+                  id="ecgStatus">
+
+                Ready
+
+            </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div class="progress ecg-progress"
+                 id="ecgProgress">
+
+            </div>
+
+        </div>
+
+        <div class="model-details">
+
+            <p>
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Model Accuracy
+
+                <strong>98.2%</strong>
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- Echo -->
+
+    <div class="model-card echo-card">
+
+        <div class="card-header">
+
+            <div class="icon echo-icon">
+
+                <i class="fa-solid fa-lungs"></i>
+
+            </div>
+
+            <div>
+
+                <h2>Echo Prediction</h2>
+
+                <span>Weight : 15%</span>
+
+            </div>
+
+        </div>
+
+        <div class="prediction-value">
+
+            <h1 id="echoScore">0%</h1>
+
+            <span class="status low"
+                  id="echoStatus">
+
+                Ready
+
+            </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div class="progress echo-progress"
+                 id="echoProgress">
+
+            </div>
+
+        </div>
+
+        <div class="model-details">
+
+            <p>
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Model Accuracy
+
+                <strong>96.8%</strong>
+
+            </p>
+
+
+        </div>
+
+    </div>
+
+    <!-- TMT -->
+
+    <div class="model-card tmt-card">
+
+        <div class="card-header">
+
+            <div class="icon tmt-icon">
+
+                <i class="fa-solid fa-person-running"></i>
+
+            </div>
+
+            <div>
+
+                <h2>TMT Prediction</h2>
+
+                <span>Weight : 10%</span>
+
+            </div>
+
+        </div>
+
+        <div class="prediction-value">
+
+            <h1 id="tmtScore">0%</h1>
+
+            <span class="status low"
+                  id="tmtStatus">
+
+                Ready
+
+            </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div class="progress tmt-progress"
+                 id="tmtProgress">
+
+            </div>
+
+        </div>
+
+        <div class="model-details">
+
+            <p>
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Model Accuracy
+
+                <strong>95.4%</strong>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= MODEL COMPARISON ================= -->
+
+<section class="comparison-section">
+
+    <div class="comparison-card">
+
+        <div class="comparison-header">
+
+            <i class="fa-solid fa-chart-column"></i>
+
+            <h2>AI Model Comparison</h2>
+
+        </div>
+
+        <canvas id="comparisonChart"></canvas>
+
+    </div>
+
+</section>
+<!-- ================= AI RECOMMENDATION ================= -->
+
+<section class="recommendation-section">
+
+    <div class="recommendation-card">
+
+        <div class="section-title">
+
+            <i class="fa-solid fa-user-doctor"></i>
+
+            <h2>AI Medical Recommendation</h2>
+
+        </div>
+
+        <div class="recommendation-box">
+
+            <h3 id="aiDecision">
+
+                Awaiting Prediction...
+
+            </h3>
+
+            <p id="recommendationText">
+
+                Once prediction is completed, personalized medical recommendations will appear here.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= RISK FACTORS ================= -->
+
+<section class="riskfactor-section">
+
+    <div class="riskfactor-card">
+
+        <div class="section-title">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+            <h2>Detected Risk Factors</h2>
+
+        </div>
+
+        <ul id="riskFactors">
+
+            <li>Prediction not performed.</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+<!-- ================= LIFESTYLE PLAN ================= -->
+<section class="lifestyle-section">
+
+    <div class="lifestyle-card">
+
+        <div class="section-title">
+            <i class="fa-solid fa-heart-circle-check"></i>
+            <h2>Lifestyle Recommendations</h2>
+        </div>
+
+        <div class="tips-grid" id="lifestyleGrid">
+            <!-- JavaScript will add recommendation cards here -->
+        </div>
+
+    </div>
+<!-- ================= DISCLAIMER ================= -->
+
+<section class="disclaimer-section">
+
+    <div class="disclaimer-card">
+
+        <div class="section-title">
+            <i class="fa-solid fa-circle-info"></i>
+            <h2>Medical Disclaimer</h2>
+        </div>
+
+        <div class="disclaimer-content">
+
+            <p>
+                <strong>Important:</strong> This report is generated by
+                <strong>CardioVision AI</strong> using machine learning models
+                trained on clinical, ECG, Echo, and TMT data.
+            </p>
+
+            <ul>
+                <li>This prediction is intended only as a clinical decision support tool.</li>
+
+                <li>It is <strong>not a substitute</strong> for professional medical diagnosis or treatment.</li>
+
+                <li>Final diagnosis and treatment decisions should always be made by a qualified cardiologist.</li>
+
+                <li>The prediction accuracy depends on the quality and completeness of the patient data provided.</li>
+
+                <li>In case of chest pain, breathing difficulty, or other emergency symptoms, seek immediate medical attention.</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+</div>
+
+<!-- ================= ACTION BUTTONS ================= -->
+
+<section class="actions">
+
+    <button onclick="window.print()" class="print-btn">
+
+        <i class="fa-solid fa-print"></i>
+
+        Print Report
+
+    </button>
+
+    <button id="downloadPDF" class="pdf-btn">
+
+        <i class="fa-solid fa-file-pdf"></i>
+
+        Download Report
+
+    </button>
+
+    <a href="/clinical" class="new-btn">
+
+        <i class="fa-solid fa-arrow-rotate-right"></i>
+
+        Start Another Prediction
+
+    </a>
+
+    <a href="/dashboard" class="home-btn">
+
+        <i class="fa-solid fa-house"></i>
+
+        Dashboard
+
+    </a>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+
+        © 2026 CardioVision AI |
+        Intelligent Coronary Artery Disease Prediction System
+
+    </p>
+
+    <p>
+
+        Developed by Nandini | Final Year BE Computer Science Project
+
+    </p>
+
+</footer>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="{{ url_for('static', filename='js/result.js') }}"></script>
+
+</body>
+
+</html>
