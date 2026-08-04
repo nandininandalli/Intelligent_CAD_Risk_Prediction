@@ -1,0 +1,15 @@
+# Datasets
+datasets/
+
+# Databases
+*.db
+
+# Python
+__pycache__/
+*.pyc
+
+# Uploads
+uploads/
+
+# Virtual environment
+venv/
