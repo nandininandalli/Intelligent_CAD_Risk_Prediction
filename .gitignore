@@ -1,15 +1,72 @@
-# Datasets
-datasets/
-
-# Databases
-*.db
-
+# ==============================
 # Python
+# ==============================
+venv/
+.venv/
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
-# Uploads
+# ==============================
+# Datasets - IGNORE EVERYTHING
+# ==============================
+datasets/
+dataset/
+data/
+*.csv
+*.xlsx
+*.xls
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# ==============================
+# ECG / Medical Data
+# ==============================
+*.hea
+*.dat
+*.atr
+*.mat
+
+# ==============================
+# User uploads
+# ==============================
 uploads/
 
-# Virtual environment
-venv/
+# ==============================
+# Local databases
+# ==============================
+*.db
+*.sqlite
+*.sqlite3
+
+# ==============================
+# Node.js
+# ==============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# ==============================
+# Environment / Secrets
+# ==============================
+.env
+.env.*
+!.env.example
+
+# ==============================
+# Jupyter
+# ==============================
+.ipynb_checkpoints/
+
+# ==============================
+# IDE / OS
+# ==============================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
