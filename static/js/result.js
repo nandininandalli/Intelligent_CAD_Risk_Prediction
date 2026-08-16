@@ -453,13 +453,11 @@ async function downloadPDF() {
         alert("Report section not found.");
         return;
     }
-
     const canvas = await html2canvas(report, {
         scale: 2,
         useCORS: true,
         backgroundColor: "#081220"
     });
-
     const imgData = canvas.toDataURL("image/png");
 
     const pdf = new jsPDF("p", "mm", "a4");

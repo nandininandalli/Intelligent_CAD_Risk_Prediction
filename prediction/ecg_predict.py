@@ -262,7 +262,7 @@ def predict_ecg(csv_path):
 
         risk_level = "Low Risk"
 
-    elif risk_percent < 70:
+    elif risk_percent < 35:
 
         risk_level = "Moderate Risk"
 
